@@ -1,0 +1,16 @@
+{
+"categories":{
+    "men":{
+        "clothing":"https://www.ajio.com/s/clothing-4461-74581",
+        "Footware": "https://www.ajio.com/s/footwear-4792-56591",
+        "Accessories": "https://www.ajio.com/s/accessories-4792-56591",
+        "All thats new":["https://www.ajio.com/s/latest-collections-4461-74581", {
+            "clothing" : "https://www.ajio.com/s/clothing-4461-74582",
+            "Footware" : "https://www.ajio.com/s/footwear-4461-74581",
+            "Accessories" : "https://www.ajio.com/s/accessories-4461-74581"
+        }]
+            
+    }    
+}
+ 
+}
