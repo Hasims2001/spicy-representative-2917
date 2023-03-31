@@ -1,0 +1,185 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    margin: 0;
+    padding: 0;
+}
+
+#container{
+    width: 88%;
+    margin: 105px auto 0px;
+}
+#container > #path{
+    font-size: small;
+    color: gray;
+    
+}
+#wholebdoy{
+    display: grid;
+    font-family: Lora;
+
+}
+#wholebdoy > #refine{
+    width: 30%;
+    height: 100%;
+}
+
+#refine > #dropbox_refine{
+    font-size: 1.2em;
+    font-weight: bold;
+}
+#clothing{
+    width: 100%;
+}
+#clothing > #head{
+    text-align: center;
+    font-size: 40px;
+    padding: 20px 10px;
+    letter-spacing: .1px;
+    text-transform: capitalize;
+}
+#sort_container{
+    height: 60px;
+    border-top: 1px solid #e5e3e3;
+    border-bottom: 1px solid #e5e3e3;
+    background-color: #fff;
+    margin-bottom: 20px;
+    margin-top: 0;
+}
+#sort_cont{
+    display:flex;
+    clear: both;
+    height: 52px;
+    background-color: #f9f9f9;
+    margin: 3px 0;
+    padding: 0px 5%;
+}
+#sort_cont > #itemcount{
+    font-weight: bold;
+    margin:auto;
+
+    width: 33%;
+}
+#sort_cont > #grid{
+    width: 33%;
+    margin:auto;
+    padding: 8px 0 0;
+}
+#sort_cont > #selector{
+    float : right;
+    margin:auto;
+
+    width: 33%;
+}
+#grid > #gridlabel{
+    float : left;
+    margin-right:5px;
+    color: grey;
+}
+#girdbox {
+    float : left;
+    width: 47%;
+    height: 26px;
+    padding: 4px;
+    position: relative;
+    bottom: 8px;
+}
+#gridbtnthree{
+    float : left;
+
+    padding: 3px;
+    width: 36px;
+    background-color: #fff;
+    border: 1px solid #939393;
+}
+#gridbtnthree > #threebtn{
+    background-image: linear-gradient(90deg,#939393 7px,#939393 0,#fff 0,#fff 0);
+    cursor: default;
+    height: 15px;
+    width: 27px;
+    background-size: 10px 10px;
+    margin-right: 20px;
+    cursor: pointer;
+    float : left;
+
+}
+#gridbtnfive{
+    padding: 3px;
+    margin-right: 5px;
+    width: 55px;
+    background-color: #fff;
+    border: 1px solid #c4c4c4;
+    border-left: none;
+    float :left;
+}
+#gridbtnfive > #fivebtn{
+    height: 15px;
+    width: 47px;
+    background-image: linear-gradient(90deg,#c4c4c4 7px,#c4c4c4 0,#fff 0,#fff 0);
+    background-size: 10px 10px;
+    cursor: pointer;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+    border-radius: 0;
+    float :left;
+
+
+}
+
+
+/* products grid */
+table  tr:nth-child(1) > td:nth-child(1){
+    width: 20%;
+}
+/* table tr:nth-child(2) > td{
+    column-span: 2;
+} */
+#products{
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-auto-rows: auto;
+    justify-content: space-between;
+    gap:20px;
+}
+#products > div{
+    margin-bottom: 70px;
+}
+#products  .brand{
+    font-family: math;
+    color: #b19975;
+    font-size: small;
+    margin: 5px 0;
+    font-weight: 200;  
+}
+
+#products .name{
+    font-size: 15px;
+    margin: 5px 0 0;
+}
+
+#products .product_img{
+ transition: none !important;
+ /* will-change: none M !important; */
+}
+#lab{
+    text-transform: uppercase;
+    color: grey;
+    font-size: small;
+    margin-right:5px;
+}
+#sorting{
+    padding: 5px;
+    border-radius: none;
+}
+
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    50% { opacity: 0.5;}
+    100% { opacity: 1; }
+}
