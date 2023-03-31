@@ -1,11 +1,15 @@
-let men = document.querySelector("#men");
-let display = document.querySelector("#display_men");
-let fetchedData = [];
+
+
+
+
+
+
 // const API = "./jsons/nav.json";
+// const API = "../jsons/product.json";
 // fetch(API).then((temp)=>{
 //     return temp.json();
 // }).then((data)=>{
-//     // displayData(data);   
+//     displayData(data);   
 // }).catch((error)=>{
 //     console.log(error);
 // })
@@ -36,6 +40,9 @@ let fetchedData = [];
 //     }, 1000);
 // }
 
+let men = document.querySelector("#men");
+let display = document.querySelector("#display_men");
+let fetchedData = [];
 
 // body (slider)
 let first = ['./images/homepage/D-UHP-BirthdayBash-5080.webp', './images/homepage/30032023-UHP-D-Main-P2-DennislingoWedani-Flat60.webp', './images/homepage/30032023-UHP-D-Main-P3-MnSSuperdry-Min50Extra35.webp', './images/homepage/30032023-UHP-D-Main-P4-AvaasaDNMX-Flat60.webp', './images/homepage/30032023-UHP-D-Main-P5-SkechersCultsport-3050.webp', './images/homepage/30032023-UHP-D-Main-P6-ShiningDivaYoubella-Under399.webp', './images/homepage/30032023-UHP-D-Main-P7-ThomasScottHummel-Flat60.webp'];
@@ -254,3 +261,4 @@ function displayMultiImage(data, name, cname){
     let ind = 0;
     let imgtag = document.getElementsByClassName(cname);
 }
+
