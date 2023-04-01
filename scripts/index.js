@@ -207,12 +207,13 @@ function displaySlider(data, name, cname){
         a.append(img);
         name.append(a);
     });
-    // name.append(indicators);
+    // name.append(indicators); 
     let ind = 0;
     sliding();
     function sliding(){
         let imgtag = document.getElementsByClassName(cname);
         // let dots = document.getElementsByClassName("dot");
+
         for(let i=0; i< imgtag.length; i++){
             imgtag[i].style.display = "none";
         }
@@ -236,7 +237,7 @@ function displayBanner(data, name){
         let img = document.createElement("img");
         img.setAttribute("src", element);
         img.setAttribute("class", "banner_img")
-    
+        
         // let key = document.createElement("div");
         // indicator.append(key);
         name.append(img); 

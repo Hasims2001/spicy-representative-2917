@@ -6,14 +6,14 @@ body{
     padding: 0;
 }
 
-#container{
+#main_container{
     width: 88%;
     margin: 105px auto 0px;
 }
-#container > #path{
+#main_container > #path{
     font-size: small;
     color: gray;
-    
+    letter-spacing: 2px;
 }
 #wholebdoy{
     display: grid;
@@ -39,7 +39,7 @@ body{
     letter-spacing: .1px;
     text-transform: capitalize;
 }
-#sort_container{
+#sort_main_container{
     height: 60px;
     border-top: 1px solid #e5e3e3;
     border-bottom: 1px solid #e5e3e3;
