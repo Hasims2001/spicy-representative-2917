@@ -1,0 +1,42 @@
+#main_container{
+    width: 88%;
+    margin: 110px auto 0px;
+}
+
+#heading{
+    text-align: center;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    padding: 30px 0px;
+}
+#nav{
+    display: flex;
+    clear: both;
+    height: 52px;
+    background-color: #f9f9f9;
+    margin: 3px 0;
+    padding: 0px 5%;
+}
+#nav div{
+    font-weight: bold;
+    margin: auto;
+}
+#products {
+    font-size: large;
+}
+#products > div{
+    margin: 10px 0px;
+}
+
+#totalbill{
+    width: 88%;
+    margin: 30px auto 80px;
+    display: flex;
+    font-size: large;
+    flex-direction: column;
+    border-top: 2px solid rgb(208, 208, 208);
+}
+
+#totalbill p {
+    margin-bottom: 0px;
+    margin-left : 80%;
+}
