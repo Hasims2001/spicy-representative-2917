@@ -1,8 +1,20 @@
 import jsonData from '../jsons/product.json' assert {type: 'json'};
 import jsonImageData from '../jsons/product_img.json' assert {type: 'json'};
 
-let LSData = localStorage.getItem("view_product");
 
+let LSData = localStorage.getItem("view_product");
+let wishlist = localStorage.getItem("wishlist");
+let addtocart = localStorage.getItem("addtocart");
+if(addtocart === null){
+    addtocart = [];
+}else{
+    addtocart = JSON.parse(addtocart);
+}
+if(wishlist === null){
+    wishlist = [];
+}else{
+    wishlist = JSON.parse(wishlist);
+}
 if(LSData === null){
     LSData = [];
     let emty = document.createElement("h1");
@@ -13,8 +25,7 @@ if(LSData === null){
     LSData = JSON.parse(LSData);
     let path = document.querySelector("#path");
 
-    let name = (LSData.name).trim().split(" ");
-    path.innerText = "Home / Men / " + name[name.length-1];
+    path.innerText = "Home / Men / " + LSData.name;
 
     let view = document.querySelector("#view");
 
@@ -30,35 +41,39 @@ if(LSData === null){
 
     // indicat.style.marginTop = "10%";
     // let all_img = [];
+    let img2 = document.createElement("img");
+    let count = 0;
     for(let i=0; i<jsonImageData.length; i++){
         let temp = (jsonImageData[i].item_img_src).split("-");
         if(temp[temp.length-3] === LSData.img_id){
             // all_img.push(jsonImageData[i].item_img_src);
-            if(temp[temp.length-1] !== "MARKETING.jpg"){
+            if(temp[temp.length-1] !== "MARKETING.jpg" && count < 5){
+                count++;
                 let img_box = document.createElement("div");
                 let img = document.createElement("img");
                 img.setAttribute("src", jsonImageData[i].item_img_src);
 
 
-                let img2 = document.createElement("img");
+                
                 img2.setAttribute("class", "img_slider");
                 img2.setAttribute("src", jsonImageData[i].item_img_src);
-    
+                img2.style.width = "100%";
                 img_box.append(img);
                 indicat_block.append(img_box);
                     
-                // img_show_block.append();
-                img_show.append(img2);
+                img_box.addEventListener('click', ()=>{
+                    img2.setAttribute("src", jsonImageData[i].item_img_src);
+                })
             }
-           
+            
         }
     }
+    img_show.append(img2);
     indicat.append(indicat_block);
     let index = 0;
     img_slid();
     function img_slid(){
         let img_sliding = document.getElementsByClassName("img_slider");
-        console.log(img_sliding);
 
         // for(let i=0; i< img_sliding.length; i++){
         //     img_sliding[i].style.display = "none";
@@ -118,6 +133,20 @@ if(LSData === null){
         let add_border = document.createElement("div");
         add_border.setAttribute("id", "borderline");
       
+        add_border.addEventListener("click", ()=>{
+            
+            let flag = false;
+            for(let z=0; z<addtocart.length; z++){
+                if(addtocart[z].img_id == LSData.img_id){
+                    flag = true;
+                    break;
+                }
+            }
+            if(!flag){
+                addtocart.push(LSData);
+                localStorage.setItem("addtocart", JSON.stringify(addtocart));
+            }
+        });
 
         let icon_cart = document.createElement("span");
         let txt_cart = document.createElement("span");
@@ -132,7 +161,21 @@ if(LSData === null){
 
         let add_wish = document.createElement("div");
         add_wish.setAttribute("id", "addtowishdiv");
-     
+        add_wish.addEventListener("click", ()=>{
+            // window.location = "./wishlist.html";
+            
+            let flag = false;
+            for(let z=0; z<wishlist.length; z++){
+                if(wishlist[z].img_id == LSData.img_id){
+                    flag = true;
+                }
+            }
+            if(!flag){
+                wishlist.push(LSData);
+                localStorage.setItem("wishlist", JSON.stringify(wishlist));
+            }
+
+        });
 
         let add_wishborder = document.createElement("div");
         add_wishborder.setAttribute("id", "borderline_wish");
@@ -146,15 +189,60 @@ if(LSData === null){
 
         
 
-       
+        let section = document.createElement("section");
+        section.style.textAlign = "left";
+        section.style.fontSize = "10px";
+        section.style.color = "grey";
+        section.style.margin = "50px";
+        section.style.lineHeight = "20px";
+        let h3 = document.createElement("h3");
+        h3.innerText = "Product Details";
+        h3.style.color = "#406786";
+        h3.style.fontSize = "large";
+        let h2 = document.createElement("h2");
+        let ul = document.createElement("ul");
+        let li1 = document.createElement("li");
+        let li2 = document.createElement("li");
+        let li3 = document.createElement("li");
+        let li4 = document.createElement("li");
+        let li5 = document.createElement("li");
+        let li6 = document.createElement("li");
+        let li7 = document.createElement("li");
 
+
+        let values = (LSData.name).trim().split(" ");
+        li1.innerText = values[1] + " " + values[2];
+        li2.innerText = "Package contains: 1 " + values[3];
+        li3.innerText = "Machine wash cold";
+        li4.innerText = "Mid Rise";
+        li5.innerText = "Cotton stretch";
+        li6.innerText = "Product Code : 420278009001";
+        
+        let mrp_div = document.createElement("div");
+        mrp_div.style.display = "flex";
+
+        let mrp = document.createElement("div");
+        let colon = document.createElement("div");
+        let dis = document.createElement("div");
+
+        mrp.innerText = 'MRP';
+        colon.innerText = ":";
+        dis.innerText = "Rs. {}.00 inclusive of all taxes(MRP changes as per size selection)".replace('{}', LSData.main);
+
+        mrp_div.append(mrp, colon, dis);
+        li7.append(mrp_div);
+        
 
         add_border.append(icon_cart, txt_cart);
         add_div.append(add_border);
 
         add_wishborder.append(icon_wish, txt_wish);
         add_wish.append(add_wishborder);
-        product_des.append(brand, names, main, price, tax, add_div, assured, add_wish);
+
+        ul.append(li1, li2, li3, li4, li5, li6, li7);
+        h2.append(ul);
+        section.append(h3, h2);
+        product_des.append(brand, names, main, price, tax, add_div, assured, add_wish, section);
 
 
     view.append(indicat, img_show, product_des);
